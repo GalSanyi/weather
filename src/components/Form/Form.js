@@ -15,7 +15,7 @@ const Form = () => {
     const { data } = await axios.get(
       `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_KEY}&units=metric`
     );
-    return setQuery(data), console.log(data);
+    return setQuery(data)
   };
   useEffect(() => {}, []);
   const handleChange = e => setLocation(e.currentTarget.value.toLowerCase());
