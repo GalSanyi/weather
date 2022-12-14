@@ -1,17 +1,9 @@
-
-
 import Form from './Form/Form';
-
-
+import s from './App.module.css'
 export const App = () => {
-
-
   return (
-    <div>
-   
-      <Form  />
-   
-      
+    <div className={s.container}>
+      <Form />
     </div>
   );
 };

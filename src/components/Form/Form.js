@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import 'react-notifications/lib/notifications.css';
+import s from './Form.modules.css';
 import {
   NotificationContainer,
   NotificationManager,
@@ -11,11 +12,12 @@ const Form = () => {
   const [location, setLocation] = useState('');
 
   const gettingWether = async () => {
-    const response = await axios.get(
+    const { data } = await axios.get(
       `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_KEY}&units=metric`
     );
-    return setQuery(response.data);
+    return setQuery(data), console.log(data);
   };
+  useEffect(() => {}, []);
   const handleChange = e => setLocation(e.currentTarget.value.toLowerCase());
 
   const handleSubmit = e => {
@@ -27,22 +29,11 @@ const Form = () => {
     gettingWether(query);
     setLocation('');
   };
-  const addZero = num => {
-    if (num < 10) {
-      return `0${num}`;
-    }
-  };
- 
-  const date = new Date(query.sys.sunrise);
-  const hours = addZero(date.getHours());
-  const minutes = addZero(date.getMinutes());
-
-  const time_date = hours + ':' + minutes ;
-
-  
 
   return (
-    <>
+    <div >
+    <div>
+
       <form onSubmit={handleSubmit}>
         <input
           onChange={handleChange}
@@ -53,8 +44,9 @@ const Form = () => {
         />
         <button>add weather</button>
       </form>
+    </div>
       <NotificationContainer />
-      <div>
+      <div className={s.container}>
         {query && (
           <>
             <h1>
@@ -62,12 +54,16 @@ const Form = () => {
             </h1>
 
             <p>Temp: {query.main.temp.toFixed()}°С</p>
-            <p>Sunrise: {time_date}</p>
+            <p>Humidity: {query.main.humidity}%</p>
             <p>Pressure: {query.main.pressure}</p>
+            <p>
+              min: {query.main.temp_min.toFixed()} || max:{' '}
+              {query.main.temp_max.toFixed()}
+            </p>
           </>
         )}
       </div>
-    </>
+    </div>
   );
 };
 
