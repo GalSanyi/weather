@@ -27,11 +27,11 @@ const Form = () => {
     gettingWether(query);
     setLocation('');
   };
-  const addZero = num => {
-    if (num < 10) {
-      return `0${num}`;
-    }
-  };
+  // const addZero = num => {
+  //   if (num < 10) {
+  //     return `0${num}`;
+  //   }
+  // };
  
   // const date = new Date(query.sys.sunrise);
   // const hours = addZero(date.getHours());
