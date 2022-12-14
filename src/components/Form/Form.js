@@ -33,11 +33,11 @@ const Form = () => {
     }
   };
  
-  const date = new Date(query.sys.sunrise);
-  const hours = addZero(date.getHours());
-  const minutes = addZero(date.getMinutes());
+  // const date = new Date(query.sys.sunrise);
+  // const hours = addZero(date.getHours());
+  // const minutes = addZero(date.getMinutes());
 
-  const time_date = hours + ':' + minutes ;
+  // const time_date = hours + ':' + minutes ;
 
   
 
@@ -62,7 +62,7 @@ const Form = () => {
             </h1>
 
             <p>Temp: {query.main.temp.toFixed()}°С</p>
-            <p>Sunrise: {time_date}</p>
+            <p>Sunrise: {query.sys.sunrise}</p>
             <p>Pressure: {query.main.pressure}</p>
           </>
         )}
