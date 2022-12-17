@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import 'react-notifications/lib/notifications.css';
+import s from './Form.module.css'
 
 import {
   NotificationContainer,
@@ -36,13 +37,14 @@ const Form = () => {
 
       <form onSubmit={handleSubmit}>
         <input
+        className={s.input}
           onChange={handleChange}
           type="text"
           name="city"
           placeholder="city"
           value={location}
         />
-        <button>add weather</button>
+       <button className={s.glowOnHover} >add City</button>
       </form>
     </div>
       <NotificationContainer />
