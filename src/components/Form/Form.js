@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import 'react-notifications/lib/notifications.css';
-import s from './Form.modules.css';
+
 import {
   NotificationContainer,
   NotificationManager,
@@ -46,7 +46,7 @@ const Form = () => {
       </form>
     </div>
       <NotificationContainer />
-      <div className={s.container}>
+      <div >
         {query && (
           <>
             <h1>
