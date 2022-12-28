@@ -41,15 +41,17 @@ const Form = () => {
           onChange={handleChange}
           type="text"
           name="city"
-          placeholder="city"
+          placeholder="Search for a city"
           value={location}
         />
        <button className={s.glowOnHover} >add City</button>
       </form>
     </div>
       <NotificationContainer />
-      <div >
+      <div className={s.Information} >
+    
         {query && (
+      
           <>
             <h1>
               City: {query.name} {query.sys.country}
