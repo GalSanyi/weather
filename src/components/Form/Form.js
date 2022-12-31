@@ -53,7 +53,7 @@ const Form = () => {
         {query && (
       
           <>
-            <h1>
+            <h1 className={s.title}>
               City: {query.name} {query.sys.country}
             </h1>
 

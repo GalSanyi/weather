@@ -97,3 +97,16 @@
   background-color: aliceblue;
   margin-top: 40px;
 }
+.title{
+  font-size: 50px;
+  padding-bottom: 15px;
+}
+p{
+  font-weight: 900;
+  font-size: 35px;
+  padding-bottom: 15px;
+}
+
+p:last-child{
+  padding-bottom: 0;
+}
